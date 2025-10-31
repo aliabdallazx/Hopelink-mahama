@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health & Hygiene - HopeLink Mahama</title>
+    <link rel="stylesheet" href="main css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">HopeLink Mahama</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="hunger-help.html" class="nav-link">Hunger Help</a>
+                <a href="education-access.html" class="nav-link">Education Access</a>
+                <a href="women-safety.html" class="nav-link">Women Safety</a>
+                <a href="youth-empowerment.html" class="nav-link">Youth Empowerment</a>
+                <div class="nav-dropdown">
+                    <a href="health-hygiene.html" class="nav-link active">Health & Hygiene</a>
+                    <div class="dropdown-content">
+                        <a href="health-hygiene.html#medical">Medical Services</a>
+                        <a href="health-hygiene.html#hygiene">Hygiene Resources</a>
+                        <a href="health-hygiene.html#water">Water & Sanitation</a>
+                    </div>
+                </div>
+                <a href="mental-wellness.html" class="nav-link">Mental Wellness</a>
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="get-involved.html" class="nav-link">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Health & Hygiene</h1>
+            <p>Access medical care, hygiene resources, and sanitation services for a healthy community</p>
+        </div>
+    </section>
+
+    <!-- Emergency Alert -->
+    <section class="emergency-alert">
+        <div class="container">
+            <div class="alert-content">
+                <h3>🚑 Medical Emergency?</h3>
+                <p>For urgent medical needs, contact our emergency health services immediately:</p>
+                <div class="emergency-contact">
+                    <a href="tel:+250788555456" class="btn btn-emergency">Call Medical Emergency: +250 788 555 456</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <!-- Medical Services -->
+            <div class="content-section" id="medical">
+                <h2>Medical Services</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Clinic Locations</h3>
+                        <p>Find healthcare services available in Mahama Camp.</p>
+                        <div class="clinic-list">
+                            <div class="clinic-item">
+                                <strong>Main Health Center</strong>
+                                <p>📍 Sector A, Block 5</p>
+                                <p>⏰ 24/7 Emergency Services</p>
+                                <button class="btn btn-sm btn-outline view-clinic-details">Details</button>
+                            </div>
+                            <div class="clinic-item">
+                                <strong>Mobile Health Unit</strong>
+                                <p>📍 Rotating Locations</p>
+                                <p>⏰ Mon-Fri, 8 AM - 4 PM</p>
+                                <button class="btn btn-sm btn-outline view-clinic-details">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <h3>Book Appointment</h3>
+                        <p>Schedule medical consultations and check-ups.</p>
+                        <button class="btn btn-primary" id="book-appointment">Book Medical Appointment</button>
+                        <button class="btn btn-outline" id="emergency-walkin">Emergency Walk-in Info</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Medicine Availability</h3>
+                        <p>Check available medicines and medical supplies.</p>
+                        <div class="medicine-search">
+                            <input type="text" class="form-control" placeholder="Search for medicine..." id="medicine-search">
+                            <button class="btn btn-sm btn-primary" id="search-medicine">Search</button>
+                        </div>
+                        <div class="common-medicines">
+                            <h4>Commonly Available:</h4>
+                            <ul>
+                                <li>Paracetamol</li>
+                                <li>Antibiotics</li>
+                                <li>Antimalarials</li>
+                                <li>Prenatal Vitamins</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hygiene Resources -->
+            <div class="content-section" id="hygiene">
+                <h2>Hygiene Resources</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Hygiene Kits</h3>
+                        <p>Request hygiene kits containing soap, toothpaste, and other essentials.</p>
+                        <button class="btn btn-primary" id="request-hygiene-kit">Request Hygiene Kit</button>
+                        <div class="kit-contents">
+                            <p><strong>Kit includes:</strong> Soap, toothpaste, toothbrush, sanitary pads, shampoo</p>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <h3>Hygiene Education</h3>
+                        <p>Learn about proper hygiene practices to prevent diseases.</p>
+                        <div class="hygiene-topics">
+                            <button class="btn btn-outline hygiene-topic" data-topic="handwashing">Hand Washing</button>
+                            <button class="btn btn-outline hygiene-topic" data-topic="food-safety">Food Safety</button>
+                            <button class="btn btn-outline hygiene-topic" data-topic="menstrual">Menstrual Hygiene</button>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <h3>Child Health</h3>
+                        <p>Resources for child health, vaccination, and nutrition.</p>
+                        <button class="btn btn-outline" id="vaccination-schedule">Vaccination Schedule</button>
+                        <button class="btn btn-primary" id="child-health-tips">Child Health Tips</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Water & Sanitation -->
+            <div class="content-section" id="water">
+                <h2>Water & Sanitation</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Water Points</h3>
+                        <p>Locations of clean water access points in the camp.</p>
+                        <div class="water-points-map">
+                            <div style="background: #e9ecef; padding: 20px; border-radius: 8px; text-align: center;">
+                                <h4>Water Distribution Points</h4>
+                                <p>🟦 Sector A: 3 points</p>
+                                <p>🟩 Sector B: 2 points</p>
+                                <p>🟨 Sector C: 4 points</p>
+                                <button class="btn btn-outline" id="view-water-map">View Detailed Map</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <h3>Report Sanitation Issue</h3>
+                        <p>Report problems with toilets, waste management, or water quality.</p>
+                        <button class="btn btn-primary" id="report-sanitation">Report Issue</button>
+                        <div class="common-issues">
+                            <h4>Common Issues:</h4>
+                            <ul>
+                                <li>Blocked toilets</li>
+                                <li>Water contamination</li>
+                                <li>Waste accumulation</li>
+                                <li>Broken water points</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <h3>Water Quality Alerts</h3>
+                        <p>Current water safety information and alerts.</p>
+                        <div class="water-alerts">
+                            <div class="alert-item safe">
+                                <strong>✅ Water Quality: Good</strong>
+                                <p>All water points tested safe for drinking</p>
+                            </div>
+                            <div class="alert-item warning">
+                                <strong>⚠️ Maintenance Alert</strong>
+                                <p>Sector B water point under repair until Friday</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" id="water-safety-tips">Water Safety Tips</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Education -->
+            <div class="content-section" id="education">
+                <h2>Health Education</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Disease Prevention</h3>
+                        <p>Information on preventing common diseases in camp settings.</p>
+                        <button class="btn btn-outline" id="learn-malaria">Malaria Prevention</button>
+                        <button class="btn btn-outline" id="learn-cholera">Cholera Prevention</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Maternal Health</h3>
+                        <p>Resources for pregnant women and new mothers.</p>
+                        <button class="btn btn-primary" id="prenatal-care">Prenatal Care Info</button>
+                        <button class="btn btn-outline" id="postnatal-care">Postnatal Care</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Nutrition Guide</h3>
+                        <p>Healthy eating information with available food resources.</p>
+                        <button class="btn btn-outline" id="nutrition-guide">View Nutrition Guide</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HopeLink Mahama</h3>
+                    <p>Connecting children, women, and youth in Mahama Camp to food, safety, education, and hope through technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="hunger-help.html">Hunger Help</a></li>
+                        <li><a href="education-access.html">Education Access</a></li>
+                        <li><a href="women-safety.html">Women Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="youth-empowerment.html">Youth Empowerment</a></li>
+                        <li><a href="health-hygiene.html">Health & Hygiene</a></li>
+                        <li><a href="mental-wellness.html">Mental Wellness</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Mahama Refugee Camp, Rwanda</p>
+                    <p>Email: info@hopelinkmahama.org</p>
+                    <p>Phone: +250 788 123 456</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HopeLink Mahama. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/js/main.js"></script>
+    <script src="js/js/js/health-hygiene.js"></script>
+</body>
+</html>
