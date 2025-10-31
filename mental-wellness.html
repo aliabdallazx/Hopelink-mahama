@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Wellness - HopeLink Mahama</title>
+    <link rel="stylesheet" href="main css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">HopeLink Mahama</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="hunger-help.html" class="nav-link">Hunger Help</a>
+                <a href="education-access.html" class="nav-link">Education Access</a>
+                <a href="women-safety.html" class="nav-link">Women Safety</a>
+                <a href="youth-empowerment.html" class="nav-link">Youth Empowerment</a>
+                <a href="health-hygiene.html" class="nav-link">Health & Hygiene</a>
+                <div class="nav-dropdown">
+                    <a href="mental-wellness.html" class="nav-link active">Mental Wellness</a>
+                    <div class="dropdown-content">
+                        <a href="mental-wellness.html#counseling">Counseling Services</a>
+                        <a href="mental-wellness.html#support">Peer Support</a>
+                        <a href="mental-wellness.html#resources">Wellness Resources</a>
+                    </div>
+                </div>
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="get-involved.html" class="nav-link">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Mental Wellness</h1>
+            <p>Supporting emotional health and wellbeing through counseling, community, and coping resources</p>
+        </div>
+    </section>
+
+    <!-- Crisis Alert -->
+    <section class="emergency-alert" style="background-color: #f8d7da; border-color: #f5c6cb;">
+        <div class="container">
+            <div class="alert-content">
+                <h3>💙 In Emotional Crisis?</h3>
+                <p>If you're experiencing overwhelming emotions or thoughts of self-harm, reach out immediately:</p>
+                <div class="emergency-contact">
+                    <a href="tel:+250788555789" class="btn btn-emergency">Call Crisis Support: +250 788 555 789</a>
+                    <button class="btn btn-outline" id="crisis-chat">Start Crisis Chat</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <!-- Counseling Services -->
+            <div class="content-section" id="counseling">
+                <h2>Counseling Services</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Individual Counseling</h3>
+                        <p>One-on-one sessions with trained mental health professionals.</p>
+                        <div class="counseling-info">
+                            <p><strong>Confidential</strong> and safe space to share</p>
+                            <p><strong>Available</strong> in multiple languages</p>
+                        </div>
+                        <button class="btn btn-primary" id="request-counseling">Request Counseling</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Group Therapy</h3>
+                        <p>Share experiences and learn coping strategies in supportive groups.</p>
+                        <div class="group-sessions">
+                            <div class="session-item">
+                                <strong>Trauma Support Group</strong>
+                                <p>Wednesdays, 2-4 PM</p>
+                            </div>
+                            <div class="session-item">
+                                <strong>Parenting Support</strong>
+                                <p>Fridays, 10 AM-12 PM</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" id="view-groups">View All Groups</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Emergency Support</h3>
+                        <p>Immediate mental health support for crisis situations.</p>
+                        <button class="btn btn-emergency" id="emergency-support">Get Emergency Support</button>
+                        <div class="crisis-resources">
+                            <p><strong>Available 24/7:</strong></p>
+                            <p>Hotline: +250 788 555 789</p>
+                            <p>Text: "HELP" to 4545</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Peer Support -->
+            <div class="content-section" id="support">
+                <h2>Peer Support</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Community Support</h3>
+                        <p>Connect with others who understand your experiences.</p>
+                        <button class="btn btn-primary" id="find-community">Find Community</button>
+                        <button class="btn btn-outline" id="share-story">Share Your Story</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Wellness Circles</h3>
+                        <p>Join small groups for mutual support and encouragement.</p>
+                        <div class="circle-types">
+                            <button class="btn btn-outline circle-type" data-type="women">Women's Circle</button>
+                            <button class="btn btn-outline circle-type" data-type="youth">Youth Circle</button>
+                            <button class="btn btn-outline circle-type" data-type="men">Men's Circle</button>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <h3>Peer Listening</h3>
+                        <p>Talk to trained peer listeners who have similar experiences.</p>
+                        <button class="btn btn-primary" id="talk-to-peer">Talk to a Peer</button>
+                        <p class="small-text">Confidential and understanding support</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wellness Resources -->
+            <div class="content-section" id="resources">
+                <h2>Wellness Resources</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Coping Tools</h3>
+                        <p>Learn techniques to manage stress and difficult emotions.</p>
+                        <div class="coping-tools">
+                            <button class="btn btn-outline coping-tool" data-tool="breathing">Breathing Exercises</button>
+                            <button class="btn btn-outline coping-tool" data-tool="grounding">Grounding Techniques</button>
+                            <button class="btn btn-outline coping-tool" data-tool="mindfulness">Mindfulness</button>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <h3>Wellness Activities</h3>
+                        <p>Participate in activities that support mental wellbeing.</p>
+                        <div class="activities-list">
+                            <div class="activity-item">
+                                <strong>Yoga & Meditation</strong>
+                                <p>Monday & Thursday, 8-9 AM</p>
+                            </div>
+                            <div class="activity-item">
+                                <strong>Art Therapy</strong>
+                                <p>Tuesday, 3-5 PM</p>
+                            </div>
+                            <div class="activity-item">
+                                <strong>Nature Walks</strong>
+                                <p>Saturday, 7-8 AM</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" id="view-activities">View Schedule</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Educational Resources</h3>
+                        <p>Learn about mental health and wellbeing.</p>
+                        <button class="btn btn-outline" id="mental-health-info">Mental Health Info</button>
+                        <button class="btn btn-outline" id="parenting-support">Parenting Resources</button>
+                        <button class="btn btn-outline" id="trauma-resources">Trauma Recovery</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Stories -->
+            <div class="content-section" id="stories">
+                <h2>Stories of Hope</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Finding Strength</h3>
+                        <p>"The counseling services helped me process my trauma and find hope for the future. I'm now supporting others in their healing journey."</p>
+                        <p class="story-author">- Anonymous</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Community Healing</h3>
+                        <p>"Through the support groups, I realized I wasn't alone. Sharing our stories has been healing for all of us."</p>
+                        <p class="story-author">- Community Member</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>New Beginnings</h3>
+                        <p>"The wellness activities gave me tools to manage my anxiety. I now feel capable of building a new life here."</p>
+                        <p class="story-author">- Youth Participant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HopeLink Mahama</h3>
+                    <p>Connecting children, women, and youth in Mahama Camp to food, safety, education, and hope through technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="hunger-help.html">Hunger Help</a></li>
+                        <li><a href="education-access.html">Education Access</a></li>
+                        <li><a href="women-safety.html">Women Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="youth-empowerment.html">Youth Empowerment</a></li>
+                        <li><a href="health-hygiene.html">Health & Hygiene</a></li>
+                        <li><a href="mental-wellness.html">Mental Wellness</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Mahama Refugee Camp, Rwanda</p>
+                    <p>Email: info@hopelinkmahama.org</p>
+                    <p>Phone: +250 788 123 456</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HopeLink Mahama. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/js/main.js"></script>
+    <script src="js/js/js/mental-wellness.js"></script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunger Help - HopeLink Mahama</title>
+    <link rel="stylesheet" href="main css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar (same as index.html) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">HopeLink Mahama</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <div class="nav-dropdown">
+                    <a href="hunger-help.html" class="nav-link active">Hunger Help</a>
+                    <div class="dropdown-content">
+                        <a href="hunger-help.html#food-request">Request Food</a>
+                        <a href="hunger-help.html#nutrition">Nutrition Info</a>
+                        <a href="hunger-help.html#partners">Food Partners</a>
+                    </div>
+                </div>
+                <a href="education-access.html" class="nav-link">Education Access</a>
+                <a href="women-safety.html" class="nav-link">Women Safety</a>
+                <a href="youth-empowerment.html" class="nav-link">Youth Empowerment</a>
+                <a href="health-hygiene.html" class="nav-link">Health & Hygiene</a>
+                <a href="mental-wellness.html" class="nav-link">Mental Wellness</a>
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="get-involved.html" class="nav-link">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Hunger Help</h1>
+            <p>Access food assistance, nutrition information, and support for you and your family</p>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <!-- Food Request Section -->
+            <div class="content-section" id="food-request">
+                <h2>Request Food Assistance</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Emergency Food Request</h3>
+                        <p>If you need immediate food assistance, submit a request through our secure form.</p>
+                        <button id="open-food-form" class="btn btn-primary">Request Food Now</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Food Distribution Points</h3>
+                        <p>Find the nearest food distribution center in Mahama Camp.</p>
+                        <div id="distribution-map">
+                            <p>Map loading...</p>
+                            <!-- In a real implementation, this would be an interactive map -->
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <h3>Food Distribution Schedule</h3>
+                        <p>Check when and where food distributions are happening this week.</p>
+                        <ul id="distribution-schedule">
+                            <li>Monday: Sector A, 9 AM - 12 PM</li>
+                            <li>Wednesday: Sector B, 9 AM - 12 PM</li>
+                            <li>Friday: Sector C, 9 AM - 12 PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nutrition Information -->
+            <div class="content-section" id="nutrition">
+                <h2>Nutrition Information</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Healthy Eating Tips</h3>
+                        <p>Learn how to make the most of available food resources for a balanced diet.</p>
+                        <button id="show-nutrition-tips" class="btn btn-outline">View Tips</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Child Nutrition</h3>
+                        <p>Special nutritional needs for children and breastfeeding mothers.</p>
+                        <button id="show-child-nutrition" class="btn btn-outline">Learn More</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Food Safety</h3>
+                        <p>How to store and prepare food safely to prevent illness.</p>
+                        <button id="show-food-safety" class="btn btn-outline">Safety Guidelines</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Partners -->
+            <div class="content-section" id="partners">
+                <h2>Our Food Partners</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>World Food Programme</h3>
+                        <p>Providing monthly food distributions and nutritional support.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Red Cross</h3>
+                        <p>Emergency food assistance and community kitchen programs.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Local Farmers</h3>
+                        <p>Fresh produce from nearby communities supporting the camp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Request Modal -->
+    <div id="food-request-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Food Assistance Request</h2>
+            <form id="food-request-form">
+                <div class="form-group">
+                    <label for="family-size">Family Size</label>
+                    <input type="number" id="family-size" class="form-control" required min="1" max="20">
+                </div>
+                <div class="form-group">
+                    <label for="urgency-level">Urgency Level</label>
+                    <select id="urgency-level" class="form-control" required>
+                        <option value="">Select urgency</option>
+                        <option value="low">Low - Need within a week</option>
+                        <option value="medium">Medium - Need within 3 days</option>
+                        <option value="high">High - Need immediately</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="special-needs">Special Dietary Needs</label>
+                    <textarea id="special-needs" class="form-control" placeholder="Any allergies, medical conditions, or special requirements"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="location">Your Location in Camp</label>
+                    <input type="text" id="location" class="form-control" required placeholder="Sector and block number">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HopeLink Mahama</h3>
+                    <p>Connecting children, women, and youth in Mahama Camp to food, safety, education, and hope through technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="hunger-help.html">Hunger Help</a></li>
+                        <li><a href="education-access.html">Education Access</a></li>
+                        <li><a href="women-safety.html">Women Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="youth-empowerment.html">Youth Empowerment</a></li>
+                        <li><a href="health-hygiene.html">Health & Hygiene</a></li>
+                        <li><a href="mental-wellness.html">Mental Wellness</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Mahama Refugee Camp, Rwanda</p>
+                    <p>Email: info@hopelinkmahama.org</p>
+                    <p>Phone: +250 788 123 456</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HopeLink Mahama. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/js/main.js"></script>
+    <script src="js/js/js/hunger-help.js"></script>
+</body>
+</html>

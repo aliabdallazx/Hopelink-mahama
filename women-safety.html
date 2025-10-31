@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety - HopeLink Mahama</title>
+    <link rel="stylesheet" href="main css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">HopeLink Mahama</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="hunger-help.html" class="nav-link">Hunger Help</a>
+                <a href="education-access.html" class="nav-link">Education Access</a>
+                <div class="nav-dropdown">
+                    <a href="women-safety.html" class="nav-link active">Women Safety</a>
+                    <div class="dropdown-content">
+                        <a href="women-safety.html#reporting">Anonymous Reporting</a>
+                        <a href="women-safety.html#emergency">Emergency Contacts</a>
+                        <a href="women-safety.html#resources">Safety Resources</a>
+                    </div>
+                </div>
+                <a href="youth-empowerment.html" class="nav-link">Youth Empowerment</a>
+                <a href="health-hygiene.html" class="nav-link">Health & Hygiene</a>
+                <a href="mental-wellness.html" class="nav-link">Mental Wellness</a>
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="get-involved.html" class="nav-link">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Women Safety</h1>
+            <p>Safe, confidential support and protection services for women in Mahama Camp</p>
+        </div>
+    </section>
+
+    <!-- Emergency Alert Banner -->
+    <section class="emergency-alert">
+        <div class="container">
+            <div class="alert-content">
+                <h3>🚨 Immediate Danger?</h3>
+                <p>If you are in immediate danger, use our emergency features or contact:</p>
+                <div class="emergency-contact">
+                    <a href="tel:+250788123456" class="btn btn-emergency">Call Emergency: +250 788 123 456</a>
+                    <button class="btn btn-emergency" id="quick-exit">Quick Exit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <!-- Anonymous Reporting -->
+            <div class="content-section" id="reporting">
+                <h2>Anonymous Reporting</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Report GBV Incident</h3>
+                        <p>Submit a secure, anonymous report of gender-based violence.</p>
+                        <div class="safety-features">
+                            <div class="safety-note">
+                                <strong>🔒 Your privacy is protected</strong>
+                                <p>All reports are encrypted and handled confidentially</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="start-gbv-report">Start Anonymous Report</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Safety Concerns</h3>
+                        <p>Report safety issues in the camp without revealing your identity.</p>
+                        <button class="btn btn-outline" id="report-safety-issue">Report Safety Issue</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Check Report Status</h3>
+                        <p>Securely check the status of your previous reports using your case ID.</p>
+                        <div class="form-group">
+                            <input type="text" id="case-id" class="form-control" placeholder="Enter your case ID">
+                        </div>
+                        <button class="btn btn-outline" id="check-status">Check Status</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Contacts -->
+            <div class="content-section" id="emergency">
+                <h2>Emergency Contacts & Resources</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>24/7 Hotlines</h3>
+                        <div class="contact-list">
+                            <div class="contact-item">
+                                <strong>GBV Emergency Hotline</strong>
+                                <p>+250 788 555 123</p>
+                                <a href="tel:+250788555123" class="btn btn-sm btn-primary">Call Now</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Medical Emergency</strong>
+                                <p>+250 788 555 456</p>
+                                <a href="tel:+250788555456" class="btn btn-sm btn-primary">Call Now</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>Psychological Support</strong>
+                                <p>+250 788 555 789</p>
+                                <a href="tel:+250788555789" class="btn btn-sm btn-primary">Call Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <h3>Safe Spaces</h3>
+                        <p>Locations of women-safe spaces in Mahama Camp:</p>
+                        <div class="safe-spaces-list">
+                            <div class="safe-space-item">
+                                <strong>Women's Center - Sector A</strong>
+                                <p>Open: 8 AM - 6 PM Daily</p>
+                                <p>Services: Counseling, legal aid, childcare</p>
+                            </div>
+                            <div class="safe-space-item">
+                                <strong>Safe House - Sector C</strong>
+                                <p>24/7 Emergency Shelter</p>
+                                <p>Contact security for access</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" id="view-safe-spaces-map">View on Map</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Emergency Protocol</h3>
+                        <p>What to do in case of emergency:</p>
+                        <ol class="emergency-steps">
+                            <li>Find a safe location immediately</li>
+                            <li>Call emergency hotline</li>
+                            <li>Use Quick Exit button if needed</li>
+                            <li>Seek medical attention if injured</li>
+                            <li>Contact trusted support person</li>
+                        </ol>
+                        <button class="btn btn-outline" id="download-safety-guide">Download Safety Guide</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safety Resources -->
+            <div class="content-section" id="resources">
+                <h2>Safety Resources & Information</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Know Your Rights</h3>
+                        <p>Information about women's rights and legal protections in Rwanda.</p>
+                        <button class="btn btn-outline" id="learn-rights">Learn About Rights</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Support Groups</h3>
+                        <p>Join confidential support groups with other women in the camp.</p>
+                        <button class="btn btn-outline" id="find-support-group">Find Support Group</button>
+                    </div>
+                    <div class="content-card">
+                        <h3>Safety Planning</h3>
+                        <p>Create a personalized safety plan for different situations.</p>
+                        <button class="btn btn-primary" id="create-safety-plan">Create Safety Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GBV Reporting Modal -->
+    <div id="gbv-report-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Anonymous GBV Report</h2>
+            <div class="safety-warning">
+                <p><strong>⚠️ Safety First:</strong> If you are in immediate danger, please call emergency services first.</p>
+            </div>
+            <form id="gbv-report-form">
+                <div class="form-group">
+                    <label>Type of Incident</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="incident-type" value="physical"> Physical Violence</label>
+                        <label><input type="checkbox" name="incident-type" value="sexual"> Sexual Violence</label>
+                        <label><input type="checkbox" name="incident-type" value="emotional"> Emotional/Psychological Abuse</label>
+                        <label><input type="checkbox" name="incident-type" value="economic"> Economic Abuse</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="incident-date">When did this happen?</label>
+                    <input type="date" id="incident-date" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="incident-location">Where did this happen?</label>
+                    <input type="text" id="incident-location" class="form-control" placeholder="Sector, block, or landmark">
+                </div>
+                <div class="form-group">
+                    <label for="incident-description">What happened? (Optional)</label>
+                    <textarea id="incident-description" class="form-control" placeholder="You don't have to provide details if you're not comfortable"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="support-needed">What kind of support do you need?</label>
+                    <select id="support-needed" class="form-control">
+                        <option value="">Select needed support</option>
+                        <option value="medical">Medical care</option>
+                        <option value="counseling">Counseling</option>
+                        <option value="legal">Legal assistance</option>
+                        <option value="shelter">Safe shelter</option>
+                        <option value="other">Other support</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contact-preference">How can we contact you? (Optional)</label>
+                    <input type="text" id="contact-preference" class="form-control" placeholder="Safe phone number or location">
+                </div>
+                <div class="form-group">
+                    <div class="privacy-notice">
+                        <p><strong>🔒 Privacy Notice:</strong> This report is completely anonymous. We will never share your identity.</p>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Anonymous Report</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HopeLink Mahama</h3>
+                    <p>Connecting children, women, and youth in Mahama Camp to food, safety, education, and hope through technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="hunger-help.html">Hunger Help</a></li>
+                        <li><a href="education-access.html">Education Access</a></li>
+                        <li><a href="women-safety.html">Women Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="youth-empowerment.html">Youth Empowerment</a></li>
+                        <li><a href="health-hygiene.html">Health & Hygiene</a></li>
+                        <li><a href="mental-wellness.html">Mental Wellness</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Mahama Refugee Camp, Rwanda</p>
+                    <p>Email: info@hopelinkmahama.org</p>
+                    <p>Phone: +250 788 123 456</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HopeLink Mahama. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/women-safety.js"></script>
+</body>
+</html>

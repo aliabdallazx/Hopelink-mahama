@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - HopeLink Mahama</title>
+    <link rel="stylesheet" href="main css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Additional Styles for Get Involved Page */
+        .donation-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .donation-amount.active {
+            background-color: #007BFF;
+            color: white;
+            border-color: #007BFF;
+        }
+        
+        .allocation-chart {
+            margin: 20px 0;
+        }
+        
+        .allocation-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .allocation-label {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .allocation-bar {
+            flex: 2;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 10px;
+        }
+        
+        .allocation-fill {
+            height: 100%;
+            transition: width 1s ease-in-out;
+        }
+        
+        .allocation-percent {
+            width: 40px;
+            text-align: right;
+            font-weight: 600;
+        }
+        
+        .needed-items ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .needed-items li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .needed-items li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .impact-counter {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #007BFF 0%, #4CAF50 100%);
+            color: white;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+        
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .impact-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .payment-method {
+            padding: 10px 20px;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-method.active {
+            background-color: #007BFF;
+            color: white;
+        }
+        
+        .volunteer-benefits {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .benefit-icon {
+            font-size: 1.5rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+        
+        .close-modal:hover {
+            color: #000;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: #007BFF;
+            width: 0%;
+            transition: width 2s ease-in-out;
+        }
+        
+        .donation-summary {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .donation-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .donation-total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #007BFF;
+            text-align: center;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">HopeLink Mahama</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="hunger-help.html" class="nav-link">Hunger Help</a>
+                <a href="education-access.html" class="nav-link">Education Access</a>
+                <a href="women-safety.html" class="nav-link">Women Safety</a>
+                <a href="youth-empowerment.html" class="nav-link">Youth Empowerment</a>
+                <a href="health-hygiene.html" class="nav-link">Health & Hygiene</a>
+                <a href="mental-wellness.html" class="nav-link">Mental Wellness</a>
+                <a href="about-us.html" class="nav-link">About Us</a>
+                <a href="get-involved.html" class="nav-link active">Get Involved</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Get Involved</h1>
+            <p>Join us in making a difference in the lives of refugees in Mahama Camp</p>
+        </div>
+    </section>
+
+    <!-- Impact Counter -->
+    <section class="impact-counter">
+        <div class="container">
+            <div class="impact-number" id="total-donations">0</div>
+            <div class="impact-label">Raised This Month</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="donation-progress"></div>
+            </div>
+            <p>Goal: 1,000,000 RWF</p>
+        </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <!-- Donate -->
+            <div class="content-section">
+                <h2>Make a Donation</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Financial Support</h3>
+                        <p>Your monetary donations help us provide essential services and resources.</p>
+                        <div class="donation-options">
+                            <button class="btn btn-outline donation-amount" data-amount="5000">5,000 RWF</button>
+                            <button class="btn btn-outline donation-amount" data-amount="10000">10,000 RWF</button>
+                            <button class="btn btn-outline donation-amount" data-amount="25000">25,000 RWF</button>
+                            <button class="btn btn-primary" id="custom-donation">Custom Amount</button>
+                        </div>
+                        
+                        <div class="payment-methods">
+                            <div class="payment-method" data-method="mobile">Mobile Money</div>
+                            <div class="payment-method" data-method="bank">Bank Transfer</div>
+                            <div class="payment-method" data-method="card">Credit Card</div>
+                        </div>
+                        
+                        <button class="btn btn-primary" id="donate-now" style="width: 100%; margin-top: 20px;">Donate Now</button>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>In-Kind Donations</h3>
+                        <p>Donate items that are needed in the camp.</p>
+                        <div class="needed-items">
+                            <h4>Most Needed Items:</h4>
+                            <ul>
+                                <li>Non-perishable food</li>
+                                <li>Hygiene kits</li>
+                                <li>School supplies</li>
+                                <li>Baby care items</li>
+                                <li>Blankets and clothing</li>
+                                <li>Medical supplies</li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-primary" id="donate-items">Arrange Item Donation</button>
+                        
+                        <div class="volunteer-benefits">
+                            <h4>Donation Impact:</h4>
+                            <div class="benefits-list">
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🍽️</span>
+                                    <span>5,000 RWF feeds a family for 3 days</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">📚</span>
+                                    <span>10,000 RWF provides school supplies for 5 children</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🩹</span>
+                                    <span>25,000 RWF supplies a health kit for 10 families</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Where Your Money Goes</h3>
+                        <div class="allocation-chart">
+                            <div class="allocation-item">
+                                <span class="allocation-label">Food Assistance</span>
+                                <div class="allocation-bar">
+                                    <div class="allocation-fill" style="width: 40%; background: #007BFF;"></div>
+                                </div>
+                                <span class="allocation-percent">40%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="allocation-label">Education</span>
+                                <div class="allocation-bar">
+                                    <div class="allocation-fill" style="width: 25%; background: #4CAF50;"></div>
+                                </div>
+                                <span class="allocation-percent">25%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="allocation-label">Health Services</span>
+                                <div class="allocation-bar">
+                                    <div class="allocation-fill" style="width: 20%; background: #FFD93D;"></div>
+                                </div>
+                                <span class="allocation-percent">20%</span>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="allocation-label">Administration</span>
+                                <div class="allocation-bar">
+                                    <div class="allocation-fill" style="width: 15%; background: #9C89B8;"></div>
+                                </div>
+                                <span class="allocation-percent">15%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="donation-summary">
+                            <h4>Transparency Promise</h4>
+                            <p>We provide regular reports on how donations are used and the impact they create in the community.</p>
+                            <button class="btn btn-outline" id="view-reports">View Impact Reports</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Volunteer -->
+            <div class="content-section">
+                <h2>Volunteer Opportunities</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Teaching & Education</h3>
+                        <p>Help children and youth with learning activities and skills development.</p>
+                        <div class="volunteer-details">
+                            <p><strong>Time Commitment:</strong> 2-4 hours per week</p>
+                            <p><strong>Skills Needed:</strong> Teaching, patience, creativity</p>
+                            <p><strong>Location:</strong> Education Center, Sector B</p>
+                        </div>
+                        <button class="btn btn-primary" id="volunteer-education">Volunteer in Education</button>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Community Support</h3>
+                        <p>Assist with food distribution, community events, and outreach programs.</p>
+                        <div class="volunteer-details">
+                            <p><strong>Time Commitment:</strong> Flexible hours</p>
+                            <p><strong>Skills Needed:</strong> Communication, organization</p>
+                            <p><strong>Location:</strong> Various locations in camp</p>
+                        </div>
+                        <button class="btn btn-primary" id="volunteer-community">Community Volunteering</button>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Technical Skills</h3>
+                        <p>Share your expertise in technology, administration, or specialized skills.</p>
+                        <div class="volunteer-details">
+                            <p><strong>Time Commitment:</strong> Project-based</p>
+                            <p><strong>Skills Needed:</strong> IT, management, specialized knowledge</p>
+                            <p><strong>Location:</strong> Flexible (remote options available)</p>
+                        </div>
+                        <button class="btn btn-primary" id="volunteer-technical">Technical Volunteering</button>
+                    </div>
+                </div>
+                
+                <div class="volunteer-benefits">
+                    <h3>Benefits of Volunteering</h3>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🤝</span>
+                            <span>Make a direct impact in your community</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">📚</span>
+                            <span>Gain valuable experience and skills</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌍</span>
+                            <span>Connect with like-minded people</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🎖️</span>
+                            <span>Receive volunteer certification</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Partnerships -->
+            <div class="content-section">
+                <h2>Organization Partnerships</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>NGO Partnerships</h3>
+                        <p>Collaborate with us to expand services and reach more people in need.</p>
+                        <div class="partnership-details">
+                            <p><strong>Opportunities:</strong> Program collaboration, resource sharing, joint funding proposals</p>
+                            <p><strong>Benefits:</strong> Extended reach, shared expertise, increased impact</p>
+                        </div>
+                        <button class="btn btn-primary" id="partner-ngo">Become a Partner NGO</button>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Corporate Support</h3>
+                        <p>Businesses can support through funding, resources, or employee volunteering.</p>
+                        <div class="partnership-details">
+                            <p><strong>Opportunities:</strong> CSR programs, employee volunteering, in-kind donations</p>
+                            <p><strong>Benefits:</strong> Positive brand association, team building, tax benefits</p>
+                        </div>
+                        <button class="btn btn-primary" id="partner-corporate">Corporate Partnership</button>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Community Groups</h3>
+                        <p>Local organizations and community groups can partner on specific projects.</p>
+                        <div class="partnership-details">
+                            <p><strong>Opportunities:</strong> Community events, awareness campaigns, local initiatives</p>
+                            <p><strong>Benefits:</strong> Strengthened community ties, shared resources, collective impact</p>
+                        </div>
+                        <button class="btn btn-primary" id="partner-community">Community Collaboration</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HopeLink Mahama</h3>
+                    <p>Connecting children, women, and youth in Mahama Camp to food, safety, education, and hope through technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="hunger-help.html">Hunger Help</a></li>
+                        <li><a href="education-access.html">Education Access</a></li>
+                        <li><a href="women-safety.html">Women Safety</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="youth-empowerment.html">Youth Empowerment</a></li>
+                        <li><a href="health-hygiene.html">Health & Hygiene</a></li>
+                        <li><a href="mental-wellness.html">Mental Wellness</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Mahama Refugee Camp, Rwanda</p>
+                    <p>Email: info@hopelinkmahama.org</p>
+                    <p>Phone: +250 788 123 456</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 HopeLink Mahama. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Donation Modal -->
+    <div id="donation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Make a Donation</h2>
+            <form id="donation-form">
+                <div class="form-group">
+                    <label for="donor-name">Your Name</label>
+                    <input type="text" id="donor-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="donor-email">Email Address</label>
+                    <input type="email" id="donor-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="donation-amount">Donation Amount (RWF)</label>
+                    <input type="number" id="donation-amount" class="form-control" required min="1000">
+                </div>
+                <div class="form-group">
+                    <label for="donation-message">Message (Optional)</label>
+                    <textarea id="donation-message" class="form-control" rows="3" placeholder="Add a message of support..."></textarea>
+                </div>
+                <div class="donation-summary">
+                    <div class="donation-details">
+                        <span>Donation Amount:</span>
+                        <span id="summary-amount">0 RWF</span>
+                    </div>
+                    <div class="donation-details">
+                        <span>Processing Fee:</span>
+                        <span id="summary-fee">0 RWF</span>
+                    </div>
+                    <div class="donation-total" id="summary-total">0 RWF</div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Complete Donation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Volunteer Modal -->
+    <div id="volunteer-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="volunteer-modal-title">Volunteer Application</h2>
+            <form id="volunteer-form">
+                <div class="form-group">
+                    <label for="volunteer-name">Full Name</label>
+                    <input type="text" id="volunteer-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-email">Email Address</label>
+                    <input type="email" id="volunteer-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-phone">Phone Number</label>
+                    <input type="tel" id="volunteer-phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-role">Volunteer Role</label>
+                    <input type="text" id="volunteer-role" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-skills">Relevant Skills & Experience</label>
+                    <textarea id="volunteer-skills" class="form-control" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-availability">Availability</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="availability" value="weekdays"> Weekdays</label>
+                        <label><input type="checkbox" name="availability" value="weekends"> Weekends</label>
+                        <label><input type="checkbox" name="availability" value="mornings"> Mornings</label>
+                        <label><input type="checkbox" name="availability" value="afternoons"> Afternoons</label>
+                        <label><input type="checkbox" name="availability" value="evenings"> Evenings</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-motivation">Why do you want to volunteer with us?</label>
+                    <textarea id="volunteer-motivation" class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Partnership Modal -->
+    <div id="partnership-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="partnership-modal-title">Partnership Inquiry</h2>
+            <form id="partnership-form">
+                <div class="form-group">
+                    <label for="organization-name">Organization Name</label>
+                    <input type="text" id="organization-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="organization-type">Organization Type</label>
+                    <input type="text" id="organization-type" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="contact-person">Contact Person</label>
+                    <input type="text" id="contact-person" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email Address</label>
+                    <input type="email" id="contact-email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-phone">Phone Number</label>
+                    <input type="tel" id="contact-phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="partnership-interest">What type of partnership are you interested in?</label>
+                    <textarea id="partnership-interest" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="organization-background">Tell us about your organization</label>
+                    <textarea id="organization-background" class="form-control" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Partnership Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Item Donation Modal -->
+    <div id="item-donation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Arrange Item Donation</h2>
+            <form id="item-donation-form">
+                <div class="form-group">
+                    <label for="item-donor-name">Your Name</label>
+                    <input type="text" id="item-donor-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="item-donor-contact">Contact Information</label>
+                    <input type="text" id="item-donor-contact" class="form-control" required placeholder="Phone number or email">
+                </div>
+                <div class="form-group">
+                    <label for="donation-items">Items You Wish to Donate</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="donation-items" value="food"> Non-perishable food</label>
+                        <label><input type="checkbox" name="donation-items" value="hygiene"> Hygiene kits</label>
+                        <label><input type="checkbox" name="donation-items" value="school"> School supplies</label>
+                        <label><input type="checkbox" name="donation-items" value="baby"> Baby care items</label>
+                        <label><input type="checkbox" name="donation-items" value="clothing"> Clothing and blankets</label>
+                        <label><input type="checkbox" name="donation-items" value="medical"> Medical supplies</label>
+                        <label><input type="checkbox" name="donation-items" value="other"> Other items</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="item-description">Description of Items</label>
+                    <textarea id="item-description" class="form-control" rows="3" placeholder="Please describe the items you wish to donate, including quantities and conditions"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="pickup-option">Pickup/Delivery Option</label>
+                    <select id="pickup-option" class="form-control" required>
+                        <option value="">Select an option</option>
+                        <option value="deliver">I can deliver to the camp</option>
+                        <option value="pickup">I need pickup arranged</option>
+                    </select>
+                </div>
+                <div class="form-group" id="location-field" style="display: none;">
+                    <label for="donor-location">Your Location</label>
+                    <input type="text" id="donor-location" class="form-control" placeholder="Where can we pick up the items?">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Donation Request</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content" style="text-align: center;">
+            <span class="close-modal">&times;</span>
+            <div style="font-size: 4rem; margin: 20px 0;">🎉</div>
+            <h2 id="success-title">Thank You!</h2>
+            <p id="success-message">Your submission has been received successfully.</p>
+            <button class="btn btn-primary" id="success-close">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // DOM Content Loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all functionality
+            initGetInvolvedPage();
+        });
+
+        function initGetInvolvedPage() {
+            // Initialize donation tracking
+            initDonationTracking();
+            
+            // Initialize donation buttons
+            initDonationButtons();
+            
+            // Initialize payment methods
+            initPaymentMethods();
+            
+            // Initialize volunteer buttons
+            initVolunteerButtons();
+            
+            // Initialize partnership buttons
+            initPartnershipButtons();
+            
+            // Initialize item donation
+            initItemDonation();
+            
+            // Initialize allocation chart animation
+            initAllocationChart();
+            
+            // Initialize modals
+            initModals();
+            
+            // Initialize navigation
+            initNavigation();
+        }
+
+        // Donation Tracking
+        function initDonationTracking() {
+            // Simulate current donation total (in a real app, this would come from a server)
+            const currentDonations = 425000; // 425,000 RWF
+            const goal = 1000000; // 1,000,000 RWF
+            
+            // Animate the donation counter
+            animateValue('total-donations', 0, currentDonations, 2000);
+            
+            // Calculate and animate progress bar
+            const progressPercent = (currentDonations / goal) * 100;
+            setTimeout(() => {
+                document.getElementById('donation-progress').style.width = `${progressPercent}%`;
+            }, 500);
+        }
+
+        // Donation Buttons
+        function initDonationButtons() {
+            const donationAmounts = document.querySelectorAll('.donation-amount');
+            const customDonationBtn = document.getElementById('custom-donation');
+            const donateNowBtn = document.getElementById('donate-now');
+            const viewReportsBtn = document.getElementById('view-reports');
+            
+            let selectedAmount = 0;
+            
+            // Pre-select first donation amount
+            if (donationAmounts.length > 0) {
+                donationAmounts[0].classList.add('active');
+                selectedAmount = parseInt(donationAmounts[0].getAttribute('data-amount'));
+            }
+            
+            // Donation amount selection
+            donationAmounts.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    donationAmounts.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Update selected amount
+                    selectedAmount = parseInt(this.getAttribute('data-amount'));
+                    
+                    // Update donation form if open
+                    updateDonationForm(selectedAmount);
+                });
+            });
+            
+            // Custom donation button
+            customDonationBtn.addEventListener('click', function() {
+                // Remove active class from all preset amounts
+                donationAmounts.forEach(btn => btn.classList.remove('active'));
+                
+                // Show donation modal with custom amount field
+                showDonationModal();
+            });
+            
+            // Donate now button
+            donateNowBtn.addEventListener('click', function() {
+                if (selectedAmount > 0) {
+                    showDonationModal(selectedAmount);
+                } else {
+                    showNotification('Please select a donation amount first.', 'error');
+                }
+            });
+            
+            // View reports button
+            if (viewReportsBtn) {
+                viewReportsBtn.addEventListener('click', function() {
+                    showNotification('Opening impact reports...', 'info');
+                    // In a real implementation, this would open a PDF or redirect to reports page
+                    setTimeout(() => {
+                        const modal = createReportsModal();
+                        document.body.appendChild(modal);
+                    }, 1000);
+                });
+            }
+        }
+
+        // Payment Methods
+        function initPaymentMethods() {
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            
+            // Select first payment method by default
+            if (paymentMethods.length > 0) {
+                paymentMethods[0].classList.add('active');
+            }
+            
+            // Payment method selection
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove active class from all methods
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    
+                    // Add active class to clicked method
+                    this.classList.add('active');
+                });
+            });
+        }
+
+        // Volunteer Buttons
+        function initVolunteerButtons() {
+            const volunteerEducationBtn = document.getElementById('volunteer-education');
+            const volunteerCommunityBtn = document.getElementById('volunteer-community');
+            const volunteerTechnicalBtn = document.getElementById('volunteer-technical');
+            
+            volunteerEducationBtn.addEventListener('click', function() {
+                showVolunteerModal('Teaching & Education');
+            });
+            
+            volunteerCommunityBtn.addEventListener('click', function() {
+                showVolunteerModal('Community Support');
+            });
+            
+            volunteerTechnicalBtn.addEventListener('click', function() {
+                showVolunteerModal('Technical Skills');
+            });
+        }
+
+        // Partnership Buttons
+        function initPartnershipButtons() {
+            const partnerNgoBtn = document.getElementById('partner-ngo');
+            const partnerCorporateBtn = document.getElementById('partner-corporate');
+            const partnerCommunityBtn = document.getElementById('partner-community');
+            
+            partnerNgoBtn.addEventListener('click', function() {
+                showPartnershipModal('NGO');
+            });
+            
+            partnerCorporateBtn.addEventListener('click', function() {
+                showPartnershipModal('Corporate');
+            });
+            
+            partnerCommunityBtn.addEventListener('click', function() {
+                showPartnershipModal('Community Group');
+            });
+        }
+
+        // Item Donation
+        function initItemDonation() {
+            const donateItemsBtn = document.getElementById('donate-items');
+            
+            donateItemsBtn.addEventListener('click', function() {
+                showItemDonationModal();
+            });
+            
+            // Show/hide location field based on pickup option
+            const pickupOption = document.getElementById('pickup-option');
+            const locationField = document.getElementById('location-field');
+            
+            if (pickupOption && locationField) {
+                pickupOption.addEventListener('change', function() {
+                    if (this.value === 'pickup') {
+                        locationField.style.display = 'block';
+                    } else {
+                        locationField.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Allocation Chart Animation
+        function initAllocationChart() {
+            // The allocation chart is already styled with widths
+            // We can add any additional animation here if needed
+        }
+
+        // Modals
+        function initModals() {
+            // Close modals when clicking the X
+            const closeButtons = document.querySelectorAll('.close-modal');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    modal.style.display = 'none';
+                });
+            });
+            
+            // Close modals when clicking outside
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Success modal close button
+            const successCloseBtn = document.getElementById('success-close');
+            if (successCloseBtn) {
+                successCloseBtn.addEventListener('click', function() {
+                    document.getElementById('success-modal').style.display = 'none';
+                });
+            }
+            
+            // Form submissions
+            initFormSubmissions();
+        }
+
+        // Form Submissions
+        function initFormSubmissions() {
+            // Donation form
+            const donationForm = document.getElementById('donation-form');
+            if (donationForm) {
+                donationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    processDonation();
+                });
+                
+                // Update donation summary when amount changes
+                const donationAmountInput = document.getElementById('donation-amount');
+                if (donationAmountInput) {
+                    donationAmountInput.addEventListener('input', updateDonationSummary);
+                }
+            }
+            
+            // Volunteer form
+            const volunteerForm = document.getElementById('volunteer-form');
+            if (volunteerForm) {
+                volunteerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    processVolunteerApplication();
+                });
+            }
+            
+            // Partnership form
+            const partnershipForm = document.getElementById('partnership-form');
+            if (partnershipForm) {
+                partnershipForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    processPartnershipInquiry();
+                });
+            }
+            
+            // Item donation form
+            const itemDonationForm = document.getElementById('item-donation-form');
+            if (itemDonationForm) {
+                itemDonationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    processItemDonation();
+                });
+            }
+        }
+
+        // Navigation
+        function initNavigation() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (navToggle) {
+                navToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Show Donation Modal
+        function showDonationModal(presetAmount = 0) {
+            const modal = document.getElementById('donation-modal');
+            const amountInput = document.getElementById('donation-amount');
+            
+            if (presetAmount > 0) {
+                amountInput.value = presetAmount;
+            }
+            
+            updateDonationSummary();
+            modal.style.display = 'block';
+        }
+
+        // Show Volunteer Modal
+        function showVolunteerModal(role) {
+            const modal = document.getElementById('volunteer-modal');
+            const title = document.getElementById('volunteer-modal-title');
+            const roleInput = document.getElementById('volunteer-role');
+            
+            title.textContent = `Volunteer: ${role}`;
+            roleInput.value = role;
+            
+            modal.style.display = 'block';
+        }
+
+        // Show Partnership Modal
+        function showPartnershipModal(type) {
+            const modal = document.getElementById('partnership-modal');
+            const title = document.getElementById('partnership-modal-title');
+            const typeInput = document.getElementById('organization-type');
+            
+            title.textContent = `${type} Partnership`;
+            typeInput.value = type;
+            
+            modal.style.display = 'block';
+        }
+
+        // Show Item Donation Modal
+        function showItemDonationModal() {
+            const modal = document.getElementById('item-donation-modal');
+            modal.style.display = 'block';
+        }
+
+        // Show Success Modal
+        function showSuccessModal(title, message) {
+            const modal = document.getElementById('success-modal');
+            const successTitle = document.getElementById('success-title');
+            const successMessage = document.getElementById('success-message');
+            
+            successTitle.textContent = title;
+            successMessage.textContent = message;
+            
+            modal.style.display = 'block';
+        }
+
+        // Update Donation Form
+        function updateDonationForm(amount) {
+            const amountInput = document.getElementById('donation-amount');
+            if (amountInput) {
+                amountInput.value = amount;
+                updateDonationSummary();
+            }
+        }
+
+        // Update Donation Summary
+        function updateDonationSummary() {
+            const amountInput = document.getElementById('donation-amount');
+            const summaryAmount = document.getElementById('summary-amount');
+            const summaryFee = document.getElementById('summary-fee');
+            const summaryTotal = document.getElementById('summary-total');
+            
+            if (amountInput && summaryAmount && summaryFee && summaryTotal) {
+                const amount = parseInt(amountInput.value) || 0;
+                const fee = Math.round(amount * 0.02); // 2% processing fee
+                const total = amount + fee;
+                
+                summaryAmount.textContent = `${amount.toLocaleString()} RWF`;
+                summaryFee.textContent = `${fee.toLocaleString()} RWF`;
+                summaryTotal.textContent = `${total.toLocaleString()} RWF`;
+            }
+        }
+
+        // Process Donation
+        function processDonation() {
+            const amountInput = document.getElementById('donation-amount');
+            const nameInput = document.getElementById('donor-name');
+            const emailInput = document.getElementById('donor-email');
+            
+            const amount = parseInt(amountInput.value);
+            const name = nameInput.value;
+            const email = emailInput.value;
+            
+            // Validate inputs
+            if (amount < 1000) {
+                showNotification('Minimum donation amount is 1,000 RWF', 'error');
+                return;
+            }
+            
+            if (!name || !email) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Simulate donation processing
+            showNotification('Processing your donation...', 'info');
+            
+            setTimeout(() => {
+                // Close donation modal
+                document.getElementById('donation-modal').style.display = 'none';
+                
+                // Show success modal
+                showSuccessModal(
+                    'Thank You for Your Donation!',
+                    `Your donation of ${amount.toLocaleString()} RWF has been received. You will receive a confirmation email shortly.`
+                );
+                
+                // Reset form
+                document.getElementById('donation-form').reset();
+                
+                // Update donation tracking (in a real app, this would update server data)
+                updateDonationTracking(amount);
+            }, 2000);
+        }
+
+        // Process Volunteer Application
+        function processVolunteerApplication() {
+            const name = document.getElementById('volunteer-name').value;
+            const email = document.getElementById('volunteer-email').value;
+            const role = document.getElementById('volunteer-role').value;
+            
+            // Validate inputs
+            if (!name || !email) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Simulate application processing
+            showNotification('Submitting your application...', 'info');
+            
+            setTimeout(() => {
+                // Close volunteer modal
+                document.getElementById('volunteer-modal').style.display = 'none';
+                
+                // Show success modal
+                showSuccessModal(
+                    'Application Submitted!',
+                    `Thank you for your interest in volunteering as a ${role}. We will review your application and contact you within 3-5 business days.`
+                );
+                
+                // Reset form
+                document.getElementById('volunteer-form').reset();
+            }, 1500);
+        }
+
+        // Process Partnership Inquiry
+        function processPartnershipInquiry() {
+            const orgName = document.getElementById('organization-name').value;
+            const contactPerson = document.getElementById('contact-person').value;
+            const contactEmail = document.getElementById('contact-email').value;
+            
+            // Validate inputs
+            if (!orgName || !contactPerson || !contactEmail) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            // Simulate inquiry processing
+            showNotification('Sending your inquiry...', 'info');
+            
+            setTimeout(() => {
+                // Close partnership modal
+                document.getElementById('partnership-modal').style.display = 'none';
+                
+                // Show success modal
+                showSuccessModal(
+                    'Inquiry Sent!',
+                    'Thank you for your interest in partnering with HopeLink Mahama. Our partnership team will review your inquiry and contact you soon.'
+                );
+                
+                // Reset form
+                document.getElementById('partnership-form').reset();
+            }, 1500);
+        }
+
+        // Process Item Donation
+        function processItemDonation() {
+            const name = document.getElementById('item-donor-name').value;
+            const contact = document.getElementById('item-donor-contact').value;
+            const pickupOption = document.getElementById('pickup-option').value;
+            
+            // Validate inputs
+            if (!name || !contact || !pickupOption) {
+                showNotification('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            if (pickupOption === 'pickup') {
+                const location = document.getElementById('donor-location').value;
+                if (!location) {
+                    showNotification('Please provide your location for pickup', 'error');
+                    return;
+                }
+            }
+            
+            // Check if at least one item type is selected
+            const selectedItems = document.querySelectorAll('input[name="donation-items"]:checked');
+            if (selectedItems.length === 0) {
+                showNotification('Please select at least one item type', 'error');
+                return;
+            }
+            
+            // Simulate donation processing
+            showNotification('Processing your item donation request...', 'info');
+            
+            setTimeout(() => {
+                // Close item donation modal
+                document.getElementById('item-donation-modal').style.display = 'none';
+                
+                // Show success modal
+                showSuccessModal(
+                    'Donation Request Received!',
+                    'Thank you for your generous offer to donate items. Our team will contact you within 48 hours to arrange the donation.'
+                );
+                
+                // Reset form
+                document.getElementById('item-donation-form').reset();
+                document.getElementById('location-field').style.display = 'none';
+            }, 1500);
+        }
+
+        // Update Donation Tracking
+        function updateDonationTracking(amount) {
+            // In a real application, this would update server data
+            // For demonstration, we'll just update the UI
+            
+            const totalElement = document.getElementById('total-donations');
+            const progressElement = document.getElementById('donation-progress');
+            
+            const currentTotal = parseInt(totalElement.textContent.replace(/,/g, ''));
+            const newTotal = currentTotal + amount;
+            const goal = 1000000;
+            const newProgress = (newTotal / goal) * 100;
+            
+            // Animate to new total
+            animateValue('total-donations', currentTotal, newTotal, 1000);
+            
+            // Update progress bar
+            setTimeout(() => {
+                progressElement.style.width = `${newProgress}%`;
+            }, 500);
+        }
+
+        // Create Reports Modal
+        function createReportsModal() {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.display = 'block';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Impact Reports</h2>
+                    <div class="reports-list">
+                        <div class="report-item" style="padding: 15px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 4px;">
+                            <h4>Quarterly Report - Q3 2023</h4>
+                            <p>Detailed overview of our activities and impact from July to September 2023</p>
+                            <button class="btn btn-sm btn-primary download-report">Download PDF</button>
+                        </div>
+                        <div class="report-item" style="padding: 15px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 4px;">
+                            <h4>Annual Impact Report 2022</h4>
+                            <p>Comprehensive review of our achievements and challenges in 2022</p>
+                            <button class="btn btn-sm btn-primary download-report">Download PDF</button>
+                        </div>
+                        <div class="report-item" style="padding: 15px; border: 1px solid #ddd; margin-bottom: 10px; border-radius: 4px;">
+                            <h4>Financial Transparency Report</h4>
+                            <p>Detailed breakdown of income and expenditure for accountability</p>
+                            <button class="btn btn-sm btn-primary download-report">Download PDF</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add close functionality
+            const closeBtn = modal.querySelector('.close-modal');
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Add download functionality
+            const downloadBtns = modal.querySelectorAll('.download-report');
+            downloadBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    showNotification('Downloading report...', 'info');
+                    // In a real implementation, this would download the PDF
+                });
+            });
+            
+            return modal;
+        }
+
+        // Utility Functions
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                obj.innerHTML = value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-message">${message}</span>
+                    <button class="notification-close">&times;</button>
+                </div>
+            `;
+            
+            // Add styles if not already added
+            if (!document.querySelector('#notification-styles')) {
+                const styles = document.createElement('style');
+                styles.id = 'notification-styles';
+                styles.textContent = `
+                    .notification {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        z-index: 10000;
+                        min-width: 300px;
+                        max-width: 500px;
+                        border-radius: 4px;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                        animation: slideIn 0.3s ease-out;
+                    }
+                    
+                    .notification.success {
+                        background-color: #d4edda;
+                        color: #155724;
+                        border: 1px solid #c3e6cb;
+                    }
+                    
+                    .notification.error {
+                        background-color: #f8d7da;
+                        color: #721c24;
+                        border: 1px solid #f5c6cb;
+                    }
+                    
+                    .notification.info {
+                        background-color: #d1ecf1;
+                        color: #0c5460;
+                        border: 1px solid #bee5eb;
+                    }
+                    
+                    .notification-content {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 12px 16px;
+                    }
+                    
+                    .notification-close {
+                        background: none;
+                        border: none;
+                        font-size: 18px;
+                        cursor: pointer;
+                        margin-left: 10px;
+                    }
+                    
+                    @keyframes slideIn {
+                        from {
+                            transform: translateX(100%);
+                            opacity: 0;
+                        }
+                        to {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+                `;
+                document.head.appendChild(styles);
+            }
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 5000);
+            
+            // Close button functionality
+            const closeBtn = notification.querySelector('.notification-close');
+            closeBtn.addEventListener('click', function() {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
